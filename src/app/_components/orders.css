@@ -1,0 +1,37 @@
+.orders-wrapper{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.orders-wrapper h1{
+    text-align: center;
+    box-shadow: 0 5px 20px #22222264;
+}
+.ordersList{
+    width: 100%;
+    overflow-y: auto;
+}
+.orders{
+    width: 100%;
+    padding: 4%;
+    margin: 1% 0;
+}
+.orders:hover{
+    background: #f875a7;
+}
+.orders h2{
+    font-size: 1.2vw;
+    font-weight: bold;
+}
+.profile{
+    width: 100%;
+    padding: 4%;
+    margin: 1% 0;
+    /* background: #f875a7; */
+    min-height: 70vh;
+}
+.profile h2{
+    
+    font-size: 1.2vw;
+    font-weight: bold;
+}

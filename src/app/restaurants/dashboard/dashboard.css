@@ -1,0 +1,76 @@
+h1{
+    margin-top: 2%;
+    font-size: 3vw;
+}
+h2{
+    font-size: 2vw;
+    font-weight: bold;
+    color: #fd0650;
+    text-align: center;
+    
+}
+
+.restoDashboard{
+    display: flex;
+    /* min-height: 100vh; */
+    flex-direction: column;
+    /* justify-content: space-between; */
+
+}
+
+.Items{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 2%;
+}
+.btnDiv{
+    display: flex;
+    gap: 10%;   
+    margin-bottom: 3%;
+}
+.btnDiv button{
+    width: 8vw;
+    padding: 3% 2% ;
+    background: #f7066aa8;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+.btnDiv button:hover{
+    box-shadow: -3px -5px 7px -3px #ee00ff, 3px 5px 10px -2px #4600dda4;
+    transform: scale(1.1);
+}
+.itemSection{
+    width: 40vw;
+    background: #ffe3f9;
+    padding: 2%;
+    position: relative;
+    border-radius: 10px;
+    transition: 0.25s;
+}
+.itemSection:hover{
+    box-shadow: -3px -4px 7px 4px #c800ff,
+    3px 5px 7px 4px #f7066a;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2%;
+    gap: 3vh;
+}
+form input{
+    padding: 2%;
+}
+.Backbutton{
+    position: absolute;
+    left: 2%;
+    top: 2%;
+    font-size: 2.5vw;
+}
+.Backbutton:hover{
+    transform: scale(1.2);
+}

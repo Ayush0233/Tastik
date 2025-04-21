@@ -1,0 +1,20 @@
+.RestoForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+    margin-top: 2%;
+    gap: 4vh;
+    /* background: #868383; */
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2vh;
+    width: 50vw;
+}
+
+
+
+
