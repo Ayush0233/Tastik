@@ -84,13 +84,13 @@ export default function Order() {
                     <div className='summaryheading'><h1>Address Details</h1></div>
                     <div className=' priceDetails address '>
                         <h2>
-                            {userStorage.address}
+                            {userStorage?.address}
                         </h2>
                         <h2>
-                            {userStorage.city}
+                            {userStorage?.city}
                         </h2>
                         <h2>
-                            {userStorage.contact}
+                            {userStorage?.contact}
                         </h2>
                         {/* <span className='totalLine'></span> */}
 

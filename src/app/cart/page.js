@@ -49,7 +49,7 @@ const page = () => {
                 <div className='cartItems'>
                     {
                          cartStorage.map((item) => (
-                                <div className='itemContainer'>
+                                <div className='itemContainer' key={item._id}>
                                     <div className='itemImage'>
                                         <img src={item.image} alt='foodImage' />
                                     </div>

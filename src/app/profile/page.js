@@ -4,11 +4,12 @@ import CustomerHeader from '../_components/CustomerHeader'
 import Footer from '../_components/footer'
 import Orders from '../_components/orders'
 import Profile from '../_components/profile'
+import  { useRouter } from 'next/navigation'
 
 const Page = () => {
     const [loadOrders,setLoadOrders ]= useState(false);
     const [loadProfile,setLoadProfile ]= useState(true);
-
+    const router = useRouter();
     const getMyOrders = ()=>{
         setLoadOrders(true);
         setLoadProfile(false)
@@ -29,6 +30,7 @@ const Page = () => {
                     <div className='Fetchbuttons'>
                     <button onClick={getMyProfile}>Profile</button>    
                     <button onClick={getMyOrders}>Orders</button>
+                    <button onClick={()=>router.push('/restaurants/dashboard')}>Dashboard</button>
                     </div>
                     <div className='FetchOrders'>
                         {
