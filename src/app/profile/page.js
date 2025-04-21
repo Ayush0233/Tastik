@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import CustomerHeader from '../_components/CustomerHeader'
 import Footer from '../_components/footer'
 import Orders from '../_components/orders'
@@ -9,6 +9,7 @@ import  { useRouter } from 'next/navigation'
 const Page = () => {
     const [loadOrders,setLoadOrders ]= useState(false);
     const [loadProfile,setLoadProfile ]= useState(true);
+    const [restoData, setRestoData] = useState()
     const router = useRouter();
     const getMyOrders = ()=>{
         setLoadOrders(true);
@@ -17,6 +18,20 @@ const Page = () => {
     const getMyProfile = ()=>{
         setLoadProfile(true)
         setLoadOrders(false)
+    }
+    useEffect(() => {
+            const storedUser = localStorage.getItem('restaurantUser');
+            if (storedUser) {
+              setRestoData(JSON.parse(storedUser));
+            }
+          }, []);
+    const handledashboard = ()=>{
+        if(restoData){
+            router.push('/restaurants/dashboard');
+        }
+        else{
+            router.push('/')
+        }
     }
     return (
         <div>
@@ -30,7 +45,7 @@ const Page = () => {
                     <div className='Fetchbuttons'>
                     <button onClick={getMyProfile}>Profile</button>    
                     <button onClick={getMyOrders}>Orders</button>
-                    <button onClick={()=>router.push('/restaurants/dashboard')}>Dashboard</button>
+                    <button onClick={handledashboard}>Dashboard</button>
                     </div>
                     <div className='FetchOrders'>
                         {

@@ -29,10 +29,10 @@ const Orders = () => {
                              myOrders? myOrders.map((item, index) => {
 
                               return(
-                                <div className='orders'>
-                                    <h2 key={index}> Restaurant: {item.data[0]?.name ?? restaurant.number}</h2>
-                                    <h2 key={index}>Amount: ₹{item.amount}</h2>
-                                    <h2 key={index}>Status: {item.status}</h2>
+                                <div className='orders'key={index}>
+                                    <h2 > Restaurant: {item.data[0]?.name ?? restaurant.number}</h2>
+                                    <h2 >Amount: ₹{item.amount}</h2>
+                                    <h2 >Status: {item.status}</h2>
                                 </div>
                               )
                                

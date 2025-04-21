@@ -7,12 +7,39 @@ import '../_components/header.css'
 // import './login.css'
 import { usePathname, useRouter } from 'next/navigation';
 const CustomerHeader = (props) => {
-  const userStorage = JSON.parse(localStorage.getItem('user'))
-  const [user, setUser] = useState(userStorage ? userStorage : undefined)
-  let data = JSON.parse(localStorage.getItem("restaurantUser"));
-  const cartStorage = JSON.parse(localStorage.getItem('cart'))
+      const [userStorage, setUserStorage] = useState();
+      const [RestoStorage, setRestoStorage] = useState();
+      const [cartStorage, setCartStorage] = useState();
+
+      useEffect(() => {
+        const storedUser = localStorage.getItem('user');
+        if (storedUser) {
+          setUserStorage(JSON.parse(storedUser));
+        }
+      }, []);
+  // const [user, setUser] = useState(userStorage ? userStorage : undefined)
+  // let data = JSON.parse(localStorage.getItem("restaurantUser"));
+  useEffect(() => {
+    const storedRestoUser = localStorage.getItem('restaurantUser');
+    if (storedRestoUser) {
+      setRestoStorage(JSON.parse(storedRestoUser));
+    }
+  }, []);
+  //  cartStorage = JSON.parse(localStorage.getItem('cart'))
+  useEffect(() => {
+    const storedCart = localStorage.getItem('cart');
+    if (storedCart) {
+      setCartStorage(JSON.parse(storedCart));
+    }
+  }, []);
   const [cartNumber, setCartNumber] = useState(cartStorage?.length)
-  const [cartItem, setCartItem] = useState(localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : []);
+  const [cartItem, setCartItem] = useState([]);
+  useEffect(() => {
+    const storedCart = localStorage.getItem('cart');
+    if (storedCart) {
+      setCartItem(JSON.parse(storedCart));
+    }
+  }, []);
   const router = useRouter();
   const pathName = usePathname();
   useEffect(() => {
@@ -62,10 +89,10 @@ const CustomerHeader = (props) => {
   }, [props.removeCartData])
 
   useEffect(()=>{
-    if(user && pathName == "/user-auth"){
+    if(userStorage && pathName == "/user-auth"){
       router.push('/')
     }
-    else if(data && pathName == "/user-auth"){
+    else if(RestoStorage && pathName == "/user-auth"){
       router.push('/')
     }
   },[])
@@ -107,9 +134,9 @@ const CustomerHeader = (props) => {
 
           </li>
           {
-            user || data ? <>
+            userStorage || RestoStorage ? <>
             <li className="links">
-                  <Link href="/profile">{user?.name ?? data?.name}</Link>
+                  <Link href="/profile">{userStorage?.name ?? RestoStorage?.name}</Link>
                 </li>
                 <li className="login">
                     <button onClick={logout}>Logout</button>

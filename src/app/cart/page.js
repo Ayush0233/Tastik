@@ -7,7 +7,13 @@ import EmptyCart from '../_components/EmptyCart'
 import { useRouter } from 'next/navigation'
 import '../_components/login.css'
 const page = () => {
-    const [cartStorage, setCartStorage] = useState(JSON.parse(localStorage.getItem('cart')) || []);
+    const [cartStorage, setCartStorage] = useState([]);
+    useEffect(()=>{
+        const storedCart = localStorage.getItem('cart');
+        if (storedCart) {
+          setCartStorage(JSON.parse(storedCart));
+        }
+    },[])
     console.log(cartStorage);
     const [removeCartData, setRemoveCartData] = useState()
     const [total] = useState(()=>cartStorage.length==1?cartStorage[0].price:cartStorage.map(item => item.price).reduce((a, b) => a + b, 0));
