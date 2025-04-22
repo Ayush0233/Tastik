@@ -30,14 +30,14 @@ export default function Home() {
     handleLoadRestaurant();
   }, [])
   const loadLocations = async () => {
-    let response = await fetch("http://localhost:3000/api/customer/locations");
+    let response = await fetch("https://tastik-food.vercel.app/api/customer/locations");
     response = await response.json();
     if (response.success) {
       setLocations(response.result)
     }
   }
   const handleLoadRestaurant = async (params) => {
-    let url = "http://localhost:3000/api/customer"
+    let url = "https://tastik-food.vercel.app/api/customer"
     if (params?.location) {
       url = url + "?location=" + params.location;
     } else if (params?.restaurant) {

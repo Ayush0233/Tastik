@@ -33,7 +33,7 @@ const Page = (props) => {
     const LoadRestaurantDetails = async () => {
         let id = props.searchParams.id;
         // console.log(id)
-        let response = await fetch("http://localhost:3000/api/customer/" + id)
+        let response = await fetch("https://tastik-food.vercel.app/api/customer/" + id)
         response = await response.json();
         // console.log(response)
         if (response.success) {
