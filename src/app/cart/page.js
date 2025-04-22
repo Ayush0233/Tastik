@@ -1,25 +1,35 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 import CustomerHeader from '../_components/CustomerHeader'
+
 import Footer from '../_components/footer'
 import { DELIVERY_CHARGES, FREE_DELIVERY, TAX } from '../lib/constant'
 import EmptyCart from '../_components/EmptyCart'
 import { useRouter } from 'next/navigation'
 import '../_components/login.css'
 const page = () => {
+    // let localStorage;
+    // const [cartStorage, setCartStorage] = useState(JSON.parse(localStorage.getItem('cart')) || []);
     const [cartStorage, setCartStorage] = useState([]);
-    useEffect(()=>{
-        const storedCart = localStorage.getItem('cart');
-        if (storedCart) {
-          setCartStorage(JSON.parse(storedCart));
-        }
-    },[])
+    const [total, setTotal] = useState(0);
+    
     console.log(cartStorage);
     const [removeCartData, setRemoveCartData] = useState()
-    const [total] = useState(()=>cartStorage.length==1?cartStorage[0].price:cartStorage.map(item => item.price).reduce((a, b) => a + b, 0));
+    // const [total] = useState(()=>cartStorage.length==1?cartStorage[0].price:cartStorage.map(item => item.price).reduce((a, b) => a + b, 0));
     console.log(total);
     const router = useRouter();
-    
+    useEffect(() => {
+        // This code runs only in the browser
+        const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
+        setCartStorage(storedCart);
+    }, []);
+    useEffect(() => {
+        // Calculate total whenever cartStorage changes
+        const newTotal = cartStorage.length === 1 
+            ? cartStorage[0].price 
+            : cartStorage.map(item => item.price).reduce((a, b) => a + b, 0);
+        setTotal(newTotal);
+    }, [cartStorage]);
     // const [deliveryCharge, setDeliveryCharge] = useState(()=>{})
     
     const removeFromCart = (id) => {

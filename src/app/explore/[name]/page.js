@@ -10,7 +10,16 @@ const Page = (props) => {
     const [foodItems, setFoodItems] = useState([])
     const [cartData, setCartData] = useState()
     const [removeCartData, setRemoveCartData] = useState();
-    const [cartStorage, setCartStorage] = useState(JSON.parse(localStorage.getItem('cart')))
+    // const [cartStorage, setCartStorage] = useState(JSON.parse(localStorage.getItem('cart')))
+    const [cartStorage, setCartStorage] = useState()
+    // setCartStorage(cartStorage)
+      useEffect(() => {
+        const storedCart = localStorage.getItem('cart');
+        // setCartStorage([...cartStorage])
+        if (storedCart) {
+          setCartStorage(JSON.parse(storedCart));
+        }
+      }, []);
     const [cartIds, setCardIds] = useState(cartStorage?() => cartStorage.map((cartItem) => {
         return cartItem._id
     }):[])
