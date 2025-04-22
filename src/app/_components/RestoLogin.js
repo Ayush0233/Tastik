@@ -16,7 +16,7 @@ const RestoLogin= ()=>{
         }else{
             setError(false);
         }
-        let response = await fetch("http://localhost:3000/api/restaurants",{
+        let response = await fetch("https://tastik-food.vercel.app/api/restaurants",{
             method:"POST",
             body:JSON.stringify({email,password,login:true})
         });

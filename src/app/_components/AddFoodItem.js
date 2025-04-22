@@ -15,7 +15,7 @@ const AddFoodItem = () => {
             resto_id = restoData._id;
             resto_name = restoData.name;
         }
-        let response = await fetch("http://localhost:3000/api/restaurants/foods",{
+        let response = await fetch("https://tastik-food.vercel.app/restaurants/foods",{
             method:"POST",
             body:JSON.stringify({name, price,image,description,resto_id,resto_name})
         })

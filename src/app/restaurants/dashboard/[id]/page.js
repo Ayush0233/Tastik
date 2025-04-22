@@ -14,7 +14,7 @@ const EditFoodItem = (props) => {
     const [description, setDescription] = useState("")
     const router = useRouter();
     const HandleLoadfood = async() => {
-        let response = await fetch("http://localhost:3000/api/restaurants/foods/edit/"+id);
+        let response = await fetch("https://tastik-food.vercel.app/api/restaurants/foods/edit/"+id);
         response = await response.json();
         if(response.success){
             // console.log(response)
@@ -26,7 +26,7 @@ const EditFoodItem = (props) => {
     }
     const HandleEditfood = async (e)=>{
         e.preventDefault()
-        let response = await fetch("http://localhost:3000/api/restaurants/foods/edit/"+id,{
+        let response = await fetch("https://tastik-food.vercel.app/api/restaurants/foods/edit/"+id,{
             method: "PUT",
             body:JSON.stringify({name, price, image, description})
         })

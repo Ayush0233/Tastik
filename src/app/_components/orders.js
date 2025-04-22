@@ -11,7 +11,7 @@ const Orders = () => {
     },[])
     const getMyOrders = async () => {
         let userId = JSON.parse(localStorage.getItem('user'));
-        let response = await fetch("http://localhost:3000/api/orders?id="+userId?._id);
+        let response = await fetch("https://tastik-food.vercel.app/api/orders?id="+userId?._id);
         response = await response.json();
         console.log(response)
         if (response.success) {

@@ -15,7 +15,7 @@ const UserSignUp = (props) => {
       const handleSignup = async(e)=>{
         e.preventDefault();
         console.log(name, city, email,contact, address, password);
-        let response = await fetch("http://localhost:3000/api/users",{
+        let response = await fetch("https://tastik-food.vercel.app/api/users",{
           method: "POST",
           body:JSON.stringify({name, email, contact, city, address, password})
         });

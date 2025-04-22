@@ -7,7 +7,7 @@ const UserLogin = (props) => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("");
     const handleLogin = async() => {
-        let response = await fetch("http://localhost:3000/api/users/login",{
+        let response = await fetch("https://tastik-food.vercel.app/api/users/login",{
             method: "POST",
             body:JSON.stringify({email, password})
         })

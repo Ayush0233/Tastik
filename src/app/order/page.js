@@ -59,7 +59,7 @@ export default function Order() {
     };
 
     try {
-      const res = await fetch("http://localhost:3000/api/orders", {
+      const res = await fetch("https://tastik-food.vercel.app/api/orders", {
         method: "POST",
         body: JSON.stringify(collection),
       });

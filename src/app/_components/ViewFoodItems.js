@@ -13,7 +13,7 @@ const ViewFoodItems = () => {
     const getfoodItems = async () => {
         let restoData = JSON.parse(localStorage.getItem("restaurantUser"))
         let id = restoData._id;
-        let response = await fetch("http://localhost:3000/api/restaurants/foods/" + id)
+        let response = await fetch("https://tastik-food.vercel.app/api/restaurants/foods/" + id)
         response = await response.json();
         // console.log(response)
         if (response.success) {
@@ -24,7 +24,7 @@ const ViewFoodItems = () => {
 
     }
     const deleteItem = async (foodId) => {
-        let response = await fetch("http://localhost:3000/api/restaurants/foods/" + foodId, {
+        let response = await fetch("https://tastik-food.vercel.app/api/restaurants/foods/" + foodId, {
             method: "DELETE",
         });
         response = await response.json();
